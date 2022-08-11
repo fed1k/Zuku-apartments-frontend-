@@ -10,9 +10,10 @@ const Sidebar = () => {
     <div className="sidebar">
       <h1>Zuku Apartments</h1>
       <div id="links-div">
-        <NavLink className="nav-link" to="/example">EXAMPLE</NavLink>
-        <NavLink className="nav-link" to="/test">TEST</NavLink>
-        <NavLink className="nav-link" to="/">HOME</NavLink>
+        <NavLink className="nav-link" to="/">HOUSES</NavLink>
+        <NavLink className="nav-link" to="/add_house">ADD HOUSE</NavLink>
+        <NavLink className="nav-link" to="/my_reservations">MY RESERVATIONS</NavLink>
+        <NavLink className="nav-link" to="/add_reservation">ADD RESERVATION</NavLink>
       </div>
       <div className="social-contact-container">
         <BsTwitter className="social-icon"/>

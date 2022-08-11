@@ -1,8 +1,9 @@
 import { Route, Routes } from "react-router-dom"
-import Test from './components/Test'
-import Example from './components/Example'
 import Home from "./components/Home"
 import Sidebar from "./components/Sidebar"
+import AddHouse from "./components/AddHouse"
+import MyReservations from "./components/MyReservations"
+import AddRerservation from "./components/AddReservation"
 
 function App() {
   return (
@@ -10,8 +11,9 @@ function App() {
         <Sidebar />
         <Routes>
           <Route path="/" element={<Home />}/>
-          <Route path="example" element={<Example />}/>
-          <Route path="test" element={<Test />}/>
+          <Route path="add_house" element={<AddHouse />}/>
+          <Route path="my_reservations" element={<MyReservations />}/>
+          <Route path="add_reservation" element={<AddRerservation />}/>
         </Routes>
     </div>
   )
