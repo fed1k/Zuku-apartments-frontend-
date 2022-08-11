@@ -1,5 +1,6 @@
 * {
   margin: 0;
+  font-family: sans-serif;
 }
 
 .App {
@@ -43,7 +44,6 @@
 }
 
 .social-icon {
-  // font-size: 20px;
   padding: 0.4rem;
 
   &:nth-child(3) {
@@ -58,5 +58,134 @@
 
   p {
     margin-top: 1rem;
+  }
+}
+
+.my-reservations-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex: 1;
+
+  h1 {
+    align-self: center;
+    font-weight: bold;
+  }
+}
+
+.houses-div {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 2rem;
+}
+
+.left-right-buttons {
+  position: fixed;
+  top: 5px;
+  background-color: #97c00eff;
+  width: 90px;
+  height: 80px;
+  top: 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.direction-icons {
+  transform: scale(1.3);
+}
+
+.right-button {
+  right: 0;
+  border-top-left-radius: 50px;
+  border-bottom-left-radius: 50px;
+}
+
+.left-button {
+  background-color: #efefefff;
+  border-top-right-radius: 50px;
+  border-bottom-right-radius: 50px;
+}
+
+.left-btn {
+  border-top-right-radius: 50px;
+  border-bottom-right-radius: 50px;
+  top: 80%;
+}
+
+.popup-main-container {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background-color: rgba(151, 192, 14, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.reserve-btn-detail-p {
+  background-color: #97bf0fff;
+  border: none;
+  border-radius: 30px;
+  padding: 0.9rem 1rem;
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 18px;
+
+  &:active {
+    transform: scale(0.9);
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  .reserve-btn-icons {
+    font-size: 20px;
+  }
+
+  .reserve-btn-icons:nth-child(2) {
+    font-size: 23px;
+  }
+}
+
+.close-icon-popup {
+  font-size: 30px;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.delete-btn-detail-p {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 0.9rem 1rem;
+  border-radius: 30px;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  gap: 1.4rem;
+
+  & > * {
+    font-size: 22px;
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &:active {
+    transform: scale(0.9);
   }
 }
