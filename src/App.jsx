@@ -8,13 +8,13 @@ import AddRerservation from "./components/AddReservation"
 function App() {
   return (
     <div className="App">
-        <Sidebar />
-        <Routes>
-          <Route path="/" element={<Home />}/>
-          <Route path="add_house" element={<AddHouse />}/>
-          <Route path="my_reservations" element={<MyReservations />}/>
-          <Route path="add_reservation" element={<AddRerservation />}/>
-        </Routes>
+      <Sidebar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="add_house" element={<AddHouse />} />
+        <Route path="my_reservations" element={<MyReservations />} />
+        <Route path="add_reservation" element={<AddRerservation />} />
+      </Routes>
     </div>
   )
 }
