@@ -1,11 +1,14 @@
 import React from 'react'
 import '../css/auth_page.css'
+import homeIcon from '../img/icons8-real-estate-96.png';
+import doorKey from '../img/icons8-key-96.png';
 
 export default function AuthPage() {
   return (
     <div id="auth_page">
       <header id="auth-header">
-
+        <img src={homeIcon} alt="Home" />
+        <img src={doorKey} alt="Keys" />
       </header>
       <section>
         <h1>Book a comfy apartment</h1>
