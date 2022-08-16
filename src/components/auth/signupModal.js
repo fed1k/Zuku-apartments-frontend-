@@ -1,4 +1,4 @@
-import Swal from "sweetalert2";
+import Swal from 'sweetalert2';
 
 const signUpModal = () => {
   Swal.fire({
@@ -15,52 +15,54 @@ const signUpModal = () => {
     preConfirm: () => {
       // validate required fields
       if (!document.getElementById('swal-input1').value || !document.getElementById('swal-input2').value || !document.getElementById('swal-input3').value || !document.getElementById('swal-input4').value) {
-        Swal.showValidationMessage(`Please fill in all fields`)
-      }else{
+        Swal.showValidationMessage('Please fill in all fields');
+      } else {
         // send data to backend
         const firstName = document.getElementById('swal-input1').value;
         const lastName = document.getElementById('swal-input2').value;
         const email = document.getElementById('swal-input3').value;
         const password = document.getElementById('swal-input4').value;
-        const data = {firstName, lastName, email, password}
+        const data = {
+          firstName, lastName, email, password,
+        };
         // attempt signup
         fetch('http://localhost:5000/api/v1/users/signup', {
           method: 'POST',
           headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
           },
-          body: JSON.stringify(data)
+          body: JSON.stringify(data),
         })
-        .then(res => res.json())
-        .then(data => {
-          if(data.status === 'success'){
-            Swal.fire({
-              icon: 'success',
-              title: 'Success',
-              text: data.message,
-              confirmButtonColor: '#99eb1b',
-            })
-          }else{
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.status === 'success') {
+              Swal.fire({
+                icon: 'success',
+                title: 'Success',
+                text: data.message,
+                confirmButtonColor: '#99eb1b',
+              });
+            } else {
+              Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: data.message,
+                confirmButtonColor: '#99eb1b',
+              });
+            }
+          })
+          .catch((err) => {
+            console.log(err);
             Swal.fire({
               icon: 'error',
               title: 'Error',
-              text: data.message,
+              text: 'Something went wrong. Please try again later',
               confirmButtonColor: '#99eb1b',
-            })
-          }
-        })
-        .catch(err => {
-          console.log(err);
-          Swal.fire({
-            icon: 'error',
-            title: 'Error',
-            text: 'Something went wrong. Please try again later',
-            confirmButtonColor: '#99eb1b',
+            });
           });
-        })
       }
     },
-    allowOutsideClick: () => !Swal.isLoading()
+    allowOutsideClick: () => !Swal.isLoading(),
   });
 };
 export default signUpModal;
