@@ -1,19 +1,42 @@
 // Redux reducer for loading api data
 const reducer = (state = [], action) => {
-  switch(action.type){
+  switch (action.type) {
     case 'LOAD_DATA':
-      return action.payload
+      return action.payload;
     default:
-      return state
+      return state;
   }
-}
+};
 
+let auth;
+const signIn = async () => {
+  const data = await fetch(
+    'https://zuku-apartments-api.herokuapp.com/users/sign_in',
+    {
+      method: 'POST',
+      body: JSON.stringify({
+        user: {
+          email: 'firdavs@gmail.com',
+          password: '123456',
+        },
+      }),
+      headers: { 'Content-Type': 'application/json' },
+    },
+  ).then((res) => {
+    auth = res.headers.get('Authorization');
+  });
+  // console.log(auth);
+};
+// const token = 'eyJhbGciOiJIUzI1NiJ9..v79r--7ksRhInlyq3gqNBfe_C8mOHdvGBPRDrA5UBD8';
 // Middleware function
-const middleWareFunction = () => async(dispatch) => {
-  const data = await fetch('https://my-old-books-api.herokuapp.com/api/v1/books')
-  const response = await data.json()
-  dispatch({type:'LOAD_DATA', payload: response})
-}
+const middleWareFunction = () => async (dispatch) => {
+  await signIn();
+  const data = await fetch('https://zuku-apartments-api.herokuapp.com/api/v1/apartments', {
+    headers: { Authorization: auth },
+  })
+  const response = await data.json();
+  dispatch({ type: 'LOAD_DATA', payload: response });
+};
 
 export default reducer;
-export { middleWareFunction }
+export { middleWareFunction };
