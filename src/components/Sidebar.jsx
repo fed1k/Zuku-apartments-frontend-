@@ -12,6 +12,7 @@ const Sidebar = () => {
       <div id="links-div">
         <NavLink className="nav-link" to="/">APARTMENTS</NavLink>
         <NavLink className="nav-link" to="/add_house">ADD APARTMENT</NavLink>
+        <NavLink className="nav-link" to="/delete_house">DELETE APARTMENT</NavLink>
         <NavLink className="nav-link" to="/my_reservations">MY RESERVATIONS</NavLink>
         <NavLink className="nav-link" to="/add_reservation">ADD RESERVATION</NavLink>
       </div>

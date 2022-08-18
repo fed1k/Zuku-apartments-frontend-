@@ -23,7 +23,7 @@ const Home = () => {
   return (
     <div className="my-reservations-container">
       <div className='apartments-header-texts'>
-        <h1>LATEST HOUSES</h1>
+        <h1>ALL APARTMENTS</h1>
         <span>Please select an apartment model</span>
       </div>
       <div onClick={scrollerMinus} className="left-button left-right-buttons" style={laga === screen.width / 2 ? { backgroundColor: '#efefefff' } : { backgroundColor: '#97c00eff' }}>

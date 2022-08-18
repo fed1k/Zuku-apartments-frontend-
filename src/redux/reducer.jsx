@@ -3,6 +3,8 @@ const reducer = (state = [], action) => {
   switch (action.type) {
     case 'LOAD_DATA':
       return action.payload;
+    case 'DELETE_APARTMENT':
+      return state.filter((i)=> i.id !== action.id)
     default:
       return state;
   }
@@ -39,4 +41,4 @@ const middleWareFunction = () => async (dispatch) => {
 };
 
 export default reducer;
-export { middleWareFunction };
+export { middleWareFunction, auth };

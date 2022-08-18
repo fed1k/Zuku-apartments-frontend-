@@ -96,6 +96,33 @@
   border-radius: 50%;
 }
 
+.d-page-apartment-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 3% 8%;
+
+  button {
+    align-self: center;
+    padding: 0.5rem 1rem;
+    font-size: 17px;
+    background-color: #97c00eff;
+    color: white;
+    border: none;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &:active {
+      transform: scale(0.94);
+    }
+  }
+}
+
+img {
+  pointer-events: none;
+}
+
 .social-contact-container {
   margin-bottom: 2rem;
   text-align: center;
@@ -158,7 +185,6 @@
     text-decoration: none;
     color: black;
     font-weight: bold;
-    // font-size: 17px;
     text-transform: uppercase;
   }
 }
@@ -286,3 +312,39 @@
     transform: scale(0.9);
   }
 }
+
+.add-apartment-page {
+  flex: 1;
+  display: flex;
+  // justify-content: center;
+  padding-top: 3%;
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    flex: 0.2;
+    padding-left: 2%;
+    
+    input::placeholder {
+      background-color: #fff;
+    }
+
+    button {
+      padding: 0.6rem 0;
+      background-color: #97c00eff;
+      color: white;
+      border: none;
+      font-size: 17px;
+
+      &:hover {
+        cursor: pointer;
+      }
+
+      &:active {
+        transform: scale(0.97);
+      }
+    }
+  }
+}
+
