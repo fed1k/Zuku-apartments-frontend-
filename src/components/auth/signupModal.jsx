@@ -3,10 +3,9 @@ import Swal from 'sweetalert2';
 const signUpModal = () => {
   Swal.fire({
     title: 'Sign Up',
-    html: ` <input id="swal-input1" class="swal2-input" placeholder="First Name" required>
-            <input id="swal-input2" class="swal2-input" placeholder="Last Name" required>
-            <input id="swal-input3" class="swal2-input" placeholder="Email" required>
-            <input id="swal-input4" class="swal2-input" placeholder="Password" required>`,
+    html: ` <input type="text" id="swal-input1" class="swal2-input" placeholder="Enter your Full Name" required>
+            <input type="email" id="swal-input2" class="swal2-input" placeholder="Enter your email address" required>
+            <input type="password" id="swal-input3" class="swal2-input" placeholder="Enter your password" required>`,
     focusConfirm: false,
     showCancelButton: true,
     confirmButtonText: 'Sign Up',
@@ -14,19 +13,24 @@ const signUpModal = () => {
     confirmButtonColor: '#99eb1b',
     preConfirm: () => {
       // validate required fields
-      if (!document.getElementById('swal-input1').value || !document.getElementById('swal-input2').value || !document.getElementById('swal-input3').value || !document.getElementById('swal-input4').value) {
-        Swal.showValidationMessage('Please fill in all fields');
+      if (!document.getElementById('swal-input1').value 
+      || !document.getElementById('swal-input2').value 
+      || !document.getElementById('swal-input3').value
+      || !document.getElementById('swal-input2').value.match(/^[a-z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/)
+      )
+      {
+        Swal.showValidationMessage('Fill in all fields and enter a valid email address.');
       } else {
         // send data to backend
-        const firstName = document.getElementById('swal-input1').value;
-        const lastName = document.getElementById('swal-input2').value;
-        const email = document.getElementById('swal-input3').value;
-        const password = document.getElementById('swal-input4').value;
+        const name = document.getElementById('swal-input1').value;
+        const email = document.getElementById('swal-input2').value;
+        const password = document.getElementById('swal-input3').value;
+        const admin = false;
         const data = {
-          firstName, lastName, email, password,
+          name, email, password, admin
         };
         // attempt signup
-        fetch('http://localhost:5000/api/v1/users/signup', {
+        fetch('https://zuku-apartments-api.herokuapp.com/users/', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',

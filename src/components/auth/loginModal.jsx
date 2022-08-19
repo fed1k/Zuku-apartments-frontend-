@@ -1,33 +1,33 @@
 import Swal from 'sweetalert2';
 
 const loginModal = () => {
+  //Create the login modal
   Swal.fire({
     title: 'Login',
-    html: `<input id="swal-input1" class="swal2-input" placeholder="Email" required>
-           <input id="swal-input2" class="swal2-input" placeholder="Password" required>`,
+    html: `<input type="email" id="swal-input1" class="swal2-input" placeholder="Enter your email address" required>
+           <input type="password" id="swal-input2" class="swal2-input" placeholder="Enter your password" required>`,
     focusConfirm: false,
     showCancelButton: true,
     confirmButtonText: 'Login',
     reverseButtons: true,
     confirmButtonColor: '#99eb1b',
     preConfirm: () => {
-      // validate required fields
-      if (
+      // validate if required fields are not empty or the email address is valid
+      if (  
         !document.getElementById('swal-input1').value
         || !document.getElementById('swal-input2').value
+        || !document.getElementById('swal-input1').value.match(/^[a-z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/)
       ) {
-        Swal.showValidationMessage('Please fill in all fields');
+        Swal.showValidationMessage('Fill in all fields and enter a valid email address.');
       } else {
-        // send data to backend
+        // send data to the API
         const email = document.getElementById('swal-input1').value;
         const password = document.getElementById('swal-input2').value;
         const data = { email, password };
         // attempt login
-        fetch('http://localhost:5000/api/v1/users/login', {
+        fetch('https://zuku-apartments-api.herokuapp.com/users/sign_in', {
           method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
+          headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(data),
         })
           .then((res) => res.json())
