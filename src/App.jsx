@@ -9,17 +9,29 @@ import AddRerservation from './components/AddReservation';
 import { middleWareFunction } from './redux/reducer';
 import DetailReservation from './components/DetailReservation';
 import DeleteHouse from './components/DeleteHouse';
-
+import AuthPage from './components/AuthPage';
 function App() {
   const dispatch = useDispatch();
-
+  const loggedIn = false;
   useEffect(() => {
     dispatch(middleWareFunction());
   }, []);
-
   return (
-    <div className="App">
-      <Sidebar />
+    <>
+      {loggedIn ? <Authorised /> : <Unauthorised />}
+    </>
+    )
+}
+const Unauthorised = () => (
+  <>
+    <Routes>
+      <Route path="/" element={<AuthPage />} />
+    </Routes>
+  </>
+);
+const Authorised = () => (
+  <div className="App">
+     <Sidebar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="add_house" element={<AddHouse />} />
@@ -27,9 +39,8 @@ function App() {
         <Route path="my_reservations" element={<MyReservations />} />
         <Route path="add_reservation" element={<AddRerservation />} />
         <Route path="my_reservations/:id" element={<DetailReservation />} />
+        <Route path="/auth" element={<AuthPage />} />
       </Routes>
-    </div>
-  );
-}
-
+  </div>
+);
 export default App;
