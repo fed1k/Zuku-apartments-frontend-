@@ -37,8 +37,11 @@ const AddHouse = () => {
     window.location.reload()
   }
 
+  const btn = '<';
+
   return (
     <div className='add-apartment-page'>
+      <span className='back-button' onClick={()=> navigate('/')}>{btn}</span>
       <form onSubmit={submitter}>
         <TextField label="Name" ref={name} required variant="standard" />
         <TextField label="Description" ref={description} required variant="standard" />

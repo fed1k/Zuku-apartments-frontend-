@@ -1,6 +1,6 @@
 const AddReservation = () => {
     return (
-        <div>
+        <div className="add-reservation-page">
             <h1>Add new reservation</h1>
         </div>
     );

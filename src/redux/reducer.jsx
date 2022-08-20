@@ -27,9 +27,7 @@ const signIn = async () => {
   ).then((res) => {
     auth = res.headers.get('Authorization');
   });
-  // console.log(auth);
 };
-// const token = 'eyJhbGciOiJIUzI1NiJ9..v79r--7ksRhInlyq3gqNBfe_C8mOHdvGBPRDrA5UBD8';
 // Middleware function
 const middleWareFunction = () => async (dispatch) => {
   await signIn();

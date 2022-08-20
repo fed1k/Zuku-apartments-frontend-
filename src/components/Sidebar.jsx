@@ -6,8 +6,15 @@ import { BsVimeo } from "react-icons/bs"
 import { FaPinterestP } from "react-icons/fa"
 
 const Sidebar = () => {
+
+  const closeSideBar = () => {
+    const something = window.document.querySelector('.sidebar');
+    something.classList.remove('sidebar-active');
+  }
+
   return (
     <div className="sidebar">
+      <span className="close-sidebar" onClick={closeSideBar}>X</span>
       <h1>Zuku Apartments</h1>
       <div id="links-div">
         <NavLink className="nav-link" to="/">APARTMENTS</NavLink>

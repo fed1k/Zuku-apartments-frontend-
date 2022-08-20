@@ -2,6 +2,12 @@ import { useRef, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { BiRightArrow, BiLeftArrow } from 'react-icons/bi';
+import { GiHamburgerMenu } from "react-icons/gi";
+
+const logger = () => {
+  const something = window.document.querySelector('.sidebar');
+  something.classList.add('sidebar-active');
+}
 
 const Home = () => {
   const data = useSelector((state) => state);
@@ -23,6 +29,7 @@ const Home = () => {
   return (
     <div className="my-reservations-container">
       <div className='apartments-header-texts'>
+        <GiHamburgerMenu className='hamburger' onClick={logger}/>
         <h1>ALL APARTMENTS</h1>
         <span>Please select an apartment model</span>
       </div>
@@ -46,3 +53,4 @@ const Home = () => {
 };
 
 export default Home;
+export { logger }

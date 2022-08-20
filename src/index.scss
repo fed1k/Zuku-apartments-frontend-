@@ -10,12 +10,15 @@
 .sidebar {
   height: 100vh;
   width: 15%;
+  position: sticky;
+  top: 0;
   padding-left: 20px;
   border-right: 1px solid #e8e8e8ff;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background-color: #fff;
+  background-color: #F3FDFFFF;
+  transition: all 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
 
   h1 {
     color: #454545ff;
@@ -23,8 +26,14 @@
 
   *:not(h1) {
     color: #454545ff;
-    font-size: 20px;
   }
+}
+
+.sub-delete-page-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  flex: 1;
 }
 
 #details-info {
@@ -35,7 +44,6 @@
   margin-right: 25px;
 
   h1 {
-    padding-bottom: 20px;
     text-transform: uppercase;
   }
 }
@@ -56,11 +64,25 @@
   display: flex;
   justify-content: space-between;
   flex: 1;
+  gap: 20%;
+
+  .apartment-specific-image {
+    width: 35vw;
+    height: 50vh;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  }
+}
+
+.detail-description {
+  padding: 1rem 0;
+  line-height: 22px;
+}
+
+.sub-images-div {
+  display: flex;
 
   img {
-    width: 50vw;
-    height: 80vh;
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    width: 30%;
   }
 }
 
@@ -100,6 +122,7 @@
   display: flex;
   justify-content: space-between;
   padding: 3% 8%;
+  gap: 15px;
 
   button {
     align-self: center;
@@ -255,6 +278,7 @@ img {
 
 .reserve-btn-detail-p {
   background-color: #97bf0fff;
+  align-self: center;
   border: none;
   border-radius: 30px;
   padding: 0.9rem 1rem;
@@ -291,6 +315,7 @@ img {
 
 .delete-btn-detail-p {
   background-color: red;
+  align-self: center;
   color: white;
   border: none;
   padding: 0.9rem 1rem;
@@ -316,7 +341,6 @@ img {
 .add-apartment-page {
   flex: 1;
   display: flex;
-  // justify-content: center;
   padding-top: 3%;
 
   form {
@@ -348,3 +372,111 @@ img {
   }
 }
 
+.hamburger,
+.close-sidebar {
+  display: none;
+}
+
+@media screen and (max-width: 1000px) {
+  .sidebar {
+    display: none;
+  }
+
+  .left-right-buttons {
+    display: none;
+  }
+
+  .my-reservations-container {
+    height: 100vh;
+    gap: 0;
+  }
+
+  .apartments-header-texts h1 {
+    font-size: 30px;
+  }
+
+  .houses-div {
+    gap: 7vw;
+    width: 100vw;
+    margin: 0;
+    flex-direction: column;
+
+    div:nth-child(odd){
+      align-items: flex-start;
+
+      img {
+        border-radius: 0;
+        border-top-right-radius: 50%;
+        width: 70vw;
+        height: 60vh;
+      }
+    }
+
+    div:nth-child(even) {
+      align-items: flex-end;
+
+      img {
+        border-radius: 0;
+        border-top-left-radius: 50%;
+        width: 70vw;
+        height: 60vh;
+      }
+    }
+  }
+
+  .apartments-header-texts {
+    width: 100vw;
+    padding: 0.3rem 0 0.7rem 0;
+  }
+
+  .hamburger {
+    display: block;
+    font-size: 40px;
+    padding-left: 15px;
+  }
+
+  .sidebar-active {
+    display: flex;
+    position: fixed;
+    top: 0;
+    width: 50vw;
+    height: 100vh;
+    transition: all 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
+    background-color: rgba(30, 30, 30, 0.6);
+
+    *:not(h1) {
+      color: white;
+    }
+
+    h1 {
+      color: white;
+    }
+
+    span {
+      font-size: 26px;
+      margin: 10px 1rem 0 0;
+      display: inline;
+      align-self: flex-end;
+    }
+  }
+
+  .add-apartment-page {
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .back-button {
+    margin: 1rem;
+    font-size: 24px;
+    font-weight: bold;
+    align-self: flex-start;
+  }
+
+  #detail-p {
+    gap: 7%;
+
+    h1 {
+      font-size: 25px;
+    }
+  }
+}
