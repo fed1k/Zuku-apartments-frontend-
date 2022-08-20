@@ -1,6 +1,9 @@
 const MyReservations = () => {
+
   return (
-    <h1>My reservations</h1>
+    <div className="my-reservations-page">
+      <h1>RESERVATIONS</h1>
+    </div>
   );
 }
  
