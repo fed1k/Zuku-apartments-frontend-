@@ -2,6 +2,7 @@ import TextField from '@mui/material/TextField';
 import { useRef } from 'react';
 import { auth } from '../redux/reducer';
 import { useNavigate } from "react-router-dom";
+import { BiLeftArrow } from "react-icons/bi"
 
 const AddHouse = () => {
   const name = useRef();
@@ -37,11 +38,15 @@ const AddHouse = () => {
     window.location.reload()
   }
 
-  const btn = '<';
+  // const btn = '<';
 
   return (
     <div className='add-apartment-page'>
-      <span className='back-button' onClick={()=> navigate('/')}>{btn}</span>
+      {/* <span className='back-button' onClick={()=> navigate('/')}>{btn}</span> */}
+      <div onClick={()=> navigate('/')} className="left-button left-right-buttons add-apartment-page-back-btn" >
+        <BiLeftArrow className="direction-icons" />
+      </div>
+      <h1>ADD NEW APARTMENT</h1>
       <form onSubmit={submitter}>
         <TextField label="Name" ref={name} required variant="standard" />
         <TextField label="Description" ref={description} required variant="standard" />

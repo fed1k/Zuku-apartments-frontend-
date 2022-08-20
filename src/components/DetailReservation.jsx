@@ -47,9 +47,9 @@ const DetailReservation = () => {
 
   return (
     <div id="detail-p">
-      <span className='back-button' onClick={()=> navigate('/')}>{btn}</span>
+      {/* <span className='back-button' onClick={()=> navigate('/')}>{btn}</span> */}
       <div className="specific-apartment-back-btn-div">
-        <NavLink to="/" className="left-right-buttons left-btn">
+        <NavLink to="/" className="left-right-buttons left-btn detail-page-back-btn">
           <BiLeftArrow className="direction-icons" />
         </NavLink>
         {data[0] && (

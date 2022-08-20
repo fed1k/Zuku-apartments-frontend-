@@ -15,13 +15,14 @@ const Sidebar = () => {
   return (
     <div className="sidebar">
       <span className="close-sidebar" onClick={closeSideBar}>X</span>
-      <h1>Zuku Apartments</h1>
+      <img className="logo" src="../../181869.svg" alt="logo" />
       <div id="links-div">
         <NavLink className="nav-link" to="/">APARTMENTS</NavLink>
         <NavLink className="nav-link" to="/add_house">ADD APARTMENT</NavLink>
         <NavLink className="nav-link" to="/delete_house">DELETE APARTMENT</NavLink>
         <NavLink className="nav-link" to="/my_reservations">MY RESERVATIONS</NavLink>
         <NavLink className="nav-link" to="/add_reservation">ADD RESERVATION</NavLink>
+        <button type="button" className="nav-link sign-out-btn">SIGN OUT</button>
       </div>
       <div className="social-contact-container">
         <BsTwitter className="social-icon"/>
