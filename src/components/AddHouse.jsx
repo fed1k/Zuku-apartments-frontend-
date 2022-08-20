@@ -50,7 +50,7 @@ const AddHouse = () => {
         <TextField type="number" label="Price" ref={price} required variant="standard"/>
         <TextField type="number" label="Capacity" ref={capacity} required variant="standard"/>
         <TextField label="Address" ref={address} required variant="standard"/>
-        <button type="submit">ADD APARTMENT</button>
+        <button className='add-apartment-btn' type="submit">ADD APARTMENT</button>
       </form>
     </div>
   );

@@ -252,22 +252,22 @@ img {
     input::placeholder {
       background-color: #fff;
     }
+  }
+}
 
-    button {
-      padding: 0.6rem 0;
-      background-color: #97c00eff;
-      color: white;
-      border: none;
-      font-size: 17px;
+.add-apartment-btn {
+  padding: 0.6rem 0;
+  background-color: #97c00eff;
+  color: white;
+  border: none;
+  font-size: 17px;
 
-      &:hover {
-        cursor: pointer;
-      }
+  &:hover {
+    cursor: pointer;
+  }
 
-      &:active {
-        transform: scale(0.97);
-      }
-    }
+  &:active {
+    transform: scale(0.97);
   }
 }
 
