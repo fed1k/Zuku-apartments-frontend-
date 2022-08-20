@@ -7,6 +7,31 @@
   display: flex;
 }
 
+.delete-btn-detail-p {
+  background-color: red;
+  align-self: center;
+  color: white;
+  border: none;
+  padding: 0.9rem 1rem;
+  border-radius: 30px;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  gap: 1.4rem;
+
+  & > * {
+    font-size: 22px;
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &:active {
+    transform: scale(0.9);
+  }
+}
+
 .sidebar {
   height: 100vh;
   width: 15%;
@@ -17,7 +42,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background-color: #F3FDFFFF;
+  background-color: #f3fdffff;
   transition: all 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
 
   h1 {
@@ -36,6 +61,34 @@
   flex: 1;
 }
 
+.my-reservations-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex: 1;
+  gap: 10%;
+
+  h1 {
+    align-self: center;
+    font-weight: bold;
+  }
+}
+
+.apartments-header-texts {
+  align-self: center;
+  text-align: center;
+
+  h1 {
+    font-size: 40px;
+    padding-bottom: 10px;
+  }
+
+  span {
+    opacity: 0.5;
+    font-weight: bold;
+  }
+}
+
 #details-info {
   display: flex;
   flex-direction: column;
@@ -44,6 +97,35 @@
   margin-right: 25px;
 
   h1 {
+    text-transform: uppercase;
+  }
+}
+
+.houses-div {
+  display: flex;
+  overflow-x: scroll;
+  scroll-behavior: smooth;
+  gap: 10vw;
+  align-self: center;
+  width: 60vw;
+  scroll-snap-type: x mandatory;
+
+  div {
+    scroll-snap-align: start;
+    display: flex;
+    flex-direction: column;
+    gap: 2vw;
+    align-items: center;
+
+    p {
+      opacity: 0.5;
+    }
+  }
+
+  a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
     text-transform: uppercase;
   }
 }
@@ -69,13 +151,17 @@
   .apartment-specific-image {
     width: 35vw;
     height: 50vh;
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0 3px 6px, rgba(0, 0, 0, 0.23) 0 3px 6px;
   }
 }
 
 .detail-description {
   padding: 1rem 0;
   line-height: 22px;
+}
+
+img {
+  pointer-events: none;
 }
 
 .sub-images-div {
@@ -118,6 +204,40 @@
   border-radius: 50%;
 }
 
+.add-apartment-page {
+  flex: 1;
+  display: flex;
+  padding-top: 3%;
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    flex: 0.2;
+    padding-left: 2%;
+
+    input::placeholder {
+      background-color: #fff;
+    }
+
+    button {
+      padding: 0.6rem 0;
+      background-color: #97c00eff;
+      color: white;
+      border: none;
+      font-size: 17px;
+
+      &:hover {
+        cursor: pointer;
+      }
+
+      &:active {
+        transform: scale(0.97);
+      }
+    }
+  }
+}
+
 .d-page-apartment-container {
   display: flex;
   justify-content: space-between;
@@ -142,73 +262,12 @@
   }
 }
 
-img {
-  pointer-events: none;
-}
-
 .social-contact-container {
   margin-bottom: 2rem;
   text-align: center;
 
   p {
     margin-top: 1rem;
-  }
-}
-
-.my-reservations-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  flex: 1;
-  gap: 10%;
-
-  h1 {
-    align-self: center;
-    font-weight: bold;
-  }
-}
-
-.apartments-header-texts {
-  align-self: center;
-  text-align: center;
-
-  h1 {
-    font-size: 40px;
-    padding-bottom: 10px;
-  }
-
-  span {
-    opacity: 0.5;
-    font-weight: bold;
-  }
-}
-
-.houses-div {
-  display: flex;
-  overflow-x: scroll;
-  scroll-behavior: smooth;
-  gap: 10vw;
-  align-self: center;
-  width: 60vw;
-  scroll-snap-type: x mandatory;
-
-  div {
-    scroll-snap-align: start;
-    display: flex;
-    flex-direction: column;
-    gap: 2vw;
-    align-items: center;
-
-    p {
-      opacity: 0.5;
-    }
-  }
-
-  a {
-    text-decoration: none;
-    color: black;
-    font-weight: bold;
-    text-transform: uppercase;
   }
 }
 
@@ -313,65 +372,6 @@ img {
   }
 }
 
-.delete-btn-detail-p {
-  background-color: red;
-  align-self: center;
-  color: white;
-  border: none;
-  padding: 0.9rem 1rem;
-  border-radius: 30px;
-  font-size: 18px;
-  display: flex;
-  align-items: center;
-  gap: 1.4rem;
-
-  & > * {
-    font-size: 22px;
-  }
-
-  &:hover {
-    cursor: pointer;
-  }
-
-  &:active {
-    transform: scale(0.9);
-  }
-}
-
-.add-apartment-page {
-  flex: 1;
-  display: flex;
-  padding-top: 3%;
-
-  form {
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-    flex: 0.2;
-    padding-left: 2%;
-    
-    input::placeholder {
-      background-color: #fff;
-    }
-
-    button {
-      padding: 0.6rem 0;
-      background-color: #97c00eff;
-      color: white;
-      border: none;
-      font-size: 17px;
-
-      &:hover {
-        cursor: pointer;
-      }
-
-      &:active {
-        transform: scale(0.97);
-      }
-    }
-  }
-}
-
 .hamburger,
 .close-sidebar {
   display: none;
@@ -401,7 +401,7 @@ img {
     margin: 0;
     flex-direction: column;
 
-    div:nth-child(odd){
+    div:nth-child(odd) {
       align-items: flex-start;
 
       img {
