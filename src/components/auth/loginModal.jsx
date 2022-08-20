@@ -10,6 +10,7 @@ const loginModal = () => {
     showCancelButton: true,
     confirmButtonText: 'Login',
     reverseButtons: true,
+    allowOutsideClick: false,
     confirmButtonColor: '#99eb1b',
     preConfirm: () => {
       // validate if required fields are not empty or the email address is valid

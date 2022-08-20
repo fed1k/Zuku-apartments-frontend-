@@ -13,12 +13,15 @@ export default function AuthPage() {
         <img src={doorKey} alt="Keys" />
       </header>
       <section>
-        <h1>Book a comfy apartment</h1>
+        <h1>Welcome to zuku's apartments !</h1>
+        <h3>
+        Do you dream of comfort, class, luxury and peace ? <br/>
+        Do you care about your well-being and privacy ? 
+        </h3>
         <p>
-          Vaincu insensé majesté la ce approchons et dit.
-          Abondent approchons tes déplore air visage a flanc.
-          Qui chaque pleure florentines grâces l&apos;art de un,  tes atrocement
-          d&#39; athlete faite son. Le la pleurs fait le tout qui dans, monstre majesté
+        Then entrust your stays and vacations to Zuku Apartments. Whether you are alone, with family or friends, 
+        come and enjoy a pleasant and unique experience by choosing one of our apartments in different cities 
+        around the world. 
         </p>
         <div className="actions">
           <button onClick={() => signUpModal()} type="button">Sign up</button>
