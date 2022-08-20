@@ -24,12 +24,12 @@ const loginModal = () => {
         // send data to the API
         const email = document.getElementById('swal-input1').value;
         const password = document.getElementById('swal-input2').value;
-        const data = { email, password };
-        // attempt login
+        const user = { email, password };
+        // attempt login  
         fetch('https://zuku-apartments-api.herokuapp.com/users/sign_in', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(data),
+          body: JSON.stringify({user})
         })
           .then((res) => res.json())
           .then((data) => {

@@ -10,6 +10,7 @@ const signUpModal = () => {
     showCancelButton: true,
     confirmButtonText: 'Sign Up',
     reverseButtons: true,
+    allowOutsideClick: false,
     confirmButtonColor: '#99eb1b',
     preConfirm: () => {
       // validate required fields
@@ -26,16 +27,16 @@ const signUpModal = () => {
         const email = document.getElementById('swal-input2').value;
         const password = document.getElementById('swal-input3').value;
         const admin = false;
-        const data = {
+        const user = {
           name, email, password, admin
         };
-        // attempt signup
+        // attempt signup 
         fetch('https://zuku-apartments-api.herokuapp.com/users/', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify(data),
+          body: JSON.stringify({user})
         })
           .then((res) => res.json())
           .then((data) => {
@@ -66,7 +67,7 @@ const signUpModal = () => {
           });
       }
     },
-    allowOutsideClick: () => !Swal.isLoading(),
+    //allowOutsideClick: () => !Swal.isLoading(),
   });
 };
 export default signUpModal;
