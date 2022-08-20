@@ -213,30 +213,6 @@ img {
   border-radius: 50%;
 }
 
-.d-page-apartment-container {
-  display: flex;
-  justify-content: space-between;
-  padding: 3% 8%;
-  gap: 15px;
-
-  button {
-    align-self: center;
-    padding: 0.5rem 1rem;
-    font-size: 17px;
-    background-color: #97c00eff;
-    color: white;
-    border: none;
-
-    &:hover {
-      cursor: pointer;
-    }
-
-    &:active {
-      transform: scale(0.94);
-    }
-  }
-}
-
 .add-apartment-page {
   flex: 1;
   display: flex;
@@ -267,6 +243,30 @@ img {
       &:active {
         transform: scale(0.97);
       }
+    }
+  }
+}
+
+.d-page-apartment-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 3% 8%;
+  gap: 15px;
+
+  button {
+    align-self: center;
+    padding: 0.5rem 1rem;
+    font-size: 17px;
+    background-color: #97c00eff;
+    color: white;
+    border: none;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &:active {
+      transform: scale(0.94);
     }
   }
 }
