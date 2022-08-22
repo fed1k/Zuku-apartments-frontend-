@@ -1,6 +1,6 @@
 import Swal from 'sweetalert2';
 
-const signUpModal = () => {
+const signUpModal = (setIn) => {
   Swal.fire({
     title: 'Sign Up',
     html: ` <input type="text" id="swal-input1" class="swal2-input" placeholder="Enter your Full Name" required>
@@ -41,12 +41,8 @@ const signUpModal = () => {
           .then((res) => res.json())
           .then((data) => {
             if (data.status === 'success') {
-              Swal.fire({
-                icon: 'success',
-                title: 'Success',
-                text: data.message,
-                confirmButtonColor: '#99eb1b',
-              });
+              setIn(true)
+              localStorage.setItem('current_user', JSON.stringify(data.user))
             } else {
               Swal.fire({
                 icon: 'error',

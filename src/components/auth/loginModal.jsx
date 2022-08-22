@@ -1,6 +1,6 @@
 import Swal from 'sweetalert2';
 
-const loginModal = () => {
+const loginModal = (setIn) => {
   //Create the login modal
   Swal.fire({
     title: 'Login',
@@ -34,12 +34,8 @@ const loginModal = () => {
           .then((res) => res.json())
           .then((data) => {
             if (data.status === 'success') {
-              Swal.fire({
-                icon: 'success',
-                title: 'Success',
-                text: data.message,
-                confirmButtonColor: '#99eb1b',
-              });
+              setIn(true)
+              localStorage.setItem('current_user', JSON.stringify(data.user))
             } else {
               Swal.fire({
                 icon: 'error',
