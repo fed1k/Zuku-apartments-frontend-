@@ -10,6 +10,17 @@ const reducer = (state = [], action) => {
   }
 };
 
+const authorize = (state = false, action) => {
+  switch(action.type){
+    case 'SIGNEDIN':
+      return true
+    case 'SIGNOUT':
+      return false
+    default:
+      return false;
+  }
+}
+
 let auth;
 const signIn = async () => {
   const data = await fetch(
@@ -39,4 +50,4 @@ const middleWareFunction = () => async (dispatch) => {
 };
 
 export default reducer;
-export { middleWareFunction, auth };
+export { middleWareFunction, auth, authorize };

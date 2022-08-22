@@ -5,6 +5,7 @@
 
 .App {
   display: flex;
+  overflow-x: hidden;
 }
 
 .delete-btn-detail-p {
@@ -155,12 +156,26 @@
   display: flex;
   justify-content: space-between;
   flex: 1;
-  gap: 20%;
+  gap: 10%;
 
   .apartment-specific-image {
     width: 35vw;
     height: 50vh;
     box-shadow: rgba(0, 0, 0, 0.16) 0 3px 6px, rgba(0, 0, 0, 0.23) 0 3px 6px;
+  }
+}
+
+.current-user-name {
+  color: white;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  font-style: italic;
+
+  & > * {
+    color: black;
+    padding-right: 5px;
   }
 }
 
@@ -397,7 +412,7 @@ img {
 
 .logo {
   width: 70%;
-  padding: 0.3rem 1rem;
+  padding: 1.5rem 0 0.3rem 1rem;
 }
 
 .add-apartment-page-back-btn {
@@ -478,13 +493,13 @@ img {
     h1 {
       color: white;
     }
+  }
 
-    span {
-      font-size: 26px;
-      margin: 10px 1rem 0 0;
-      display: inline;
-      align-self: flex-end;
-    }
+  .close-sidebar {
+    font-size: 26px;
+    margin: 10px 1rem 0 0;
+    display: inline;
+    align-self: flex-end;
   }
 
   .back-button {
@@ -518,6 +533,7 @@ img {
     position: static;
     display: flex;
     align-self: flex-start;
+    border: none;
   }
 
   .add-apartment-page {
