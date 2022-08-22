@@ -304,6 +304,30 @@ img {
   width: 0;
 }
 
+.add-reservation-btn {
+  align-self: center;
+}
+
+.reservation-form {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ui-form-for-reservation {
+  gap: 2vw;
+}
+
+.datetime-div {
+  display: flex;
+  gap: 1vw;
+}
+
+#demo-select-small {
+  align-self: center;
+}
+
 .left-right-buttons {
   position: fixed;
   background-color: #97c00eff;
