@@ -14,6 +14,7 @@ const Sidebar = ({ setIn }) => {
   const signOut = () => {
     setIn(false)
     localStorage.removeItem('current_user')
+    localStorage.removeItem('token')
   }
 
   const currentUser = JSON.parse(localStorage.getItem("current_user")).name;

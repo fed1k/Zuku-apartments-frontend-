@@ -10,7 +10,6 @@ import {
 import { IoSettingsOutline } from "react-icons/io5";
 import { MdDelete } from "react-icons/md";
 import FormForReserve from "./FormForReserve";
-import { auth } from "../redux/reducer";
 
 const DetailReservation = () => {
   const [state, setState] = useState();
@@ -26,7 +25,7 @@ const DetailReservation = () => {
     dispatch({ type: "DELETE_APARTMENT", id: i });
     fetch(`https://zuku-apartments-api.herokuapp.com/api/v1/apartments/${i}`, {
       method: "DELETE",
-      headers: { Authorization: auth },
+      headers: { Authorization: JSON.parse(localStorage.getItem('token'))},
     });
     navigate("/");
   };
