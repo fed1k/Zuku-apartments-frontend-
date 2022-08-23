@@ -7,12 +7,36 @@ Zuku Apartments is a Web application that allows users to sign in and make reser
 ```
   git clone https://github.com/fed1k/Zuku-apartments-frontend-.git
   
-  cd Zuku-apartments-frontend-
+  # cd Zuku-apartments-frontend-
 
-  npm install
+  # npm install
 
-  npm run dev
+  # npm run dev
+
+  git clone https://github.com/ForHemer/Zuku-Apartments-Backend
+  # cd Zuku-Apartments-Backend
+
+  # Run bundle install
+
+  # Rails server
 ```
+
+## Prerequisites
+The following technologies must be installed before hand in your local machine:
+
+- Ruby (ruby --version). Should be 3.0.1 or newer.
+- Postgres ('pg', '~> 1.1')
+- Node.js (node --version)
+The commands in parenthesis () can be used to verify if they are installed and their corresponding versions.
+
+<hr>
+
+# Entity relationship diagram (ERD)
+
+![Screenshot from 2022-08-15 20-54-00](https://user-images.githubusercontent.com/88809610/184770522-a1f43c33-85b7-4ec7-aee6-bc32f06d6d32.png)
+
+## Live Demo 🌐
+[Zuku-Apartments-Api](https://zuku-apartments-api.herokuapp.com)
 
 ## Live Demo 🌐
 
