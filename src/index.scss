@@ -44,7 +44,6 @@
   flex-direction: column;
   justify-content: space-between;
   background-color: #f3fdffff;
-  transition: all 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
 
   h1 {
     color: #454545ff;
@@ -497,17 +496,40 @@ fieldset {
   }
 
   div {
-    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    box-shadow: rgba(0, 0, 0, 0.05) 0 6px 24px 0, rgba(0, 0, 0, 0.08) 0 0 0 1px;
     padding: 1rem;
+    border-radius: 6px;
 
     p {
       padding: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 6px;
     }
   }
 }
 
 .location {
   color: #96bf18;
+  font-size: 17px;
+}
+
+.white-back-btn {
+  background-color: white;
+  border: 1px solid #97c00eff;
+
+  .green-direction-icon {
+    color: #97c00eff;
+  }
+}
+
+.my-reservations-back-btn {
+  background-color: #97c00eff;
+  transform: translateX(-1rem);
+
+  .green-direction-icon {
+    color: white;
+  }
 }
 
 @media screen and (max-width: 1000px) {
@@ -574,7 +596,6 @@ fieldset {
     top: 0;
     width: 50vw;
     height: 100vh;
-    transition: all 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
     background-color: rgba(30, 30, 30, 0.6);
 
     *:not(h1) {
@@ -639,5 +660,16 @@ fieldset {
   .reservation-form {
     height: 100vh;
     width: 100vw;
+    justify-content: flex-start;
+  }
+
+  input[type="date"] {
+    padding: 0.3rem;
+    font-size: 15px;
+  }
+
+  .white-back-btn {
+    width: 60px;
+    height: 50px;
   }
 }

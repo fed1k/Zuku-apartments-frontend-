@@ -7,6 +7,8 @@ import { useSelector } from 'react-redux';
 import SendIcon from '@mui/icons-material/Send';
 import Button from '@mui/material/Button';
 import Swal from 'sweetalert2';
+import { useNavigate } from 'react-router-dom';
+import { BiLeftArrow } from "react-icons/bi"
 
 const AddReservation = () => {
   const [age, setAge] = useState('');
@@ -14,6 +16,7 @@ const AddReservation = () => {
   const [sDate, setSDate] = useState();
   const [eDate, setEDate] = useState();
   const [picked, setPicked] = useState();
+  const navigate = useNavigate()
 
   const apartments = useSelector((state) => state);
 
@@ -37,6 +40,25 @@ const AddReservation = () => {
     setAmount(TotalDays * Math.round(picked[0].price / 30));
   };
 
+  const postData = () => {
+    const reservation = {
+      startDate: sDate,
+      endDate: eDate,
+      amount,
+      user_id: JSON.parse(localStorage.getItem('current_user')).id,
+      apartment_id: picked[0].id
+    };
+    fetch('https://zuku-apartments-api.herokuapp.com/api/v1/reservations', {
+      method: 'POST',
+      body: JSON.stringify({reservation}),
+      headers: {
+        Authorization: JSON.parse(localStorage.getItem('token')),
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+    });
+  };
+
   const submit = (e) => {
     e.preventDefault();
     if (eDate > sDate) {
@@ -47,6 +69,10 @@ const AddReservation = () => {
         showConfirmButton: false,
         timer: 1300,
       });
+      postData();
+      setTimeout(()=>{
+        navigate('/my_reservations')
+      }, 1600)
     } else {
       Swal.fire({
         position: 'center',
@@ -60,6 +86,9 @@ const AddReservation = () => {
 
   return (
     <form action="" className="reservation-form" onSubmit={submit}>
+      <button type="button" onClick={() => navigate('/')} className="left-button left-right-buttons add-apartment-page-back-btn white-back-btn">
+        <BiLeftArrow className="direction-icons green-direction-icon" />
+      </button>
       <FormControl
         sx={{ m: 1, minWidth: 120 }}
         size="small"
