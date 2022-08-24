@@ -37,7 +37,7 @@ const Home = () => {
         <BiLeftArrow className="direction-icons" />
       </div>
       <div className="houses-div" ref={field}>
-        {data ? data.map((i) => (
+        {data.length ? data.map((i) => (
           <div key={i.id} className="hola">
             <img src={i.image} className="apartment-image" />
             <NavLink to={`/my_reservations/${i.id}`}>{i.name}</NavLink>

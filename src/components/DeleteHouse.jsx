@@ -2,7 +2,6 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux"
 import { confirmAlert } from 'react-confirm-alert';
 import 'react-confirm-alert/src/react-confirm-alert.css'; 
-import { auth } from "../redux/reducer";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { logger } from "./Home";
 
@@ -14,7 +13,7 @@ const DeleteHouse = () => {
       dispatch({type: 'DELETE_APARTMENT', id: i})
       fetch(`https://zuku-apartments-api.herokuapp.com/api/v1/apartments/${i}`, {
         method: 'DELETE',
-        headers: { Authorization: auth }
+        headers: { Authorization: JSON.parse(localStorage.getItem('token')) }
       })
     }
 

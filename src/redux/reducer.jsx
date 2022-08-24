@@ -4,50 +4,31 @@ const reducer = (state = [], action) => {
     case 'LOAD_DATA':
       return action.payload;
     case 'DELETE_APARTMENT':
-      return state.filter((i)=> i.id !== action.id)
+      return state.filter((i) => i.id !== action.id);
     default:
       return state;
   }
 };
 
 const authorize = (state = false, action) => {
-  switch(action.type){
+  switch (action.type) {
     case 'SIGNEDIN':
-      return true
+      return true;
     case 'SIGNOUT':
-      return false
+      return false;
     default:
       return false;
   }
-}
-
-let auth;
-const signIn = async () => {
-  const data = await fetch(
-    'https://zuku-apartments-api.herokuapp.com/users/sign_in',
-    {
-      method: 'POST',
-      body: JSON.stringify({
-        user: {
-          email: 'firdavs@gmail.com',
-          password: '123456',
-        },
-      }),
-      headers: { 'Content-Type': 'application/json' },
-    },
-  ).then((res) => {
-    auth = res.headers.get('Authorization');
-  });
 };
+
 // Middleware function
 const middleWareFunction = () => async (dispatch) => {
-  await signIn();
   const data = await fetch('https://zuku-apartments-api.herokuapp.com/api/v1/apartments', {
-    headers: { Authorization: auth },
-  })
+    headers: { Authorization: JSON.parse(localStorage.getItem('token'))},
+  });
   const response = await data.json();
   dispatch({ type: 'LOAD_DATA', payload: response });
 };
 
 export default reducer;
-export { middleWareFunction, auth, authorize };
+export { middleWareFunction, authorize };

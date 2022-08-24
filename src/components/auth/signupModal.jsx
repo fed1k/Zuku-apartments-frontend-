@@ -38,7 +38,13 @@ const signUpModal = (setIn) => {
           },
           body: JSON.stringify({user})
         })
-          .then((res) => res.json())
+          .then((res) => {
+            localStorage.setItem(
+              "token",
+              JSON.stringify(res.headers.get("Authorization"))
+            );
+            return res.json()
+          })
           .then((data) => {
             if (data.status === 'success') {
               setIn(true)

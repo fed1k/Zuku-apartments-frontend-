@@ -1,23 +1,25 @@
-import React, { useEffect, useState } from "react";
-import { Route, Routes } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { FaUserCircle } from "react-icons/fa";
-import Home from "./components/Home";
-import Sidebar from "./components/Sidebar";
-import AddHouse from "./components/AddHouse";
-import MyReservations from "./components/MyReservations";
-import AddRerservation from "./components/AddReservation";
-import { middleWareFunction } from "./redux/reducer";
-import DetailReservation from "./components/DetailReservation";
-import DeleteHouse from "./components/DeleteHouse";
-import AuthPage from "./components/AuthPage";
+import React, { useEffect, useState } from 'react';
+import { Route, Routes } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import Home from './components/Home';
+import Sidebar from './components/Sidebar';
+import AddHouse from './components/AddHouse';
+import MyReservations from './components/MyReservations';
+import AddRerservation from './components/AddReservation';
+import { middleWareFunction } from './redux/reducer';
+import DetailReservation from './components/DetailReservation';
+import DeleteHouse from './components/DeleteHouse';
+import AuthPage from './components/AuthPage';
 
 function App() {
   const dispatch = useDispatch();
-  // const loggedIn = useSelector((state) => state.second);
   const [inner, setIn] = useState(false);
   useEffect(() => {
     dispatch(middleWareFunction());
+
+    if (JSON.parse(localStorage.getItem('current_user'))) {
+      setIn(true);
+    }
   }, []);
 
   if (!inner) {

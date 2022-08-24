@@ -2,7 +2,6 @@ import TextField from '@mui/material/TextField';
 import { useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { BiLeftArrow } from 'react-icons/bi';
-import { auth } from '../redux/reducer';
 
 const AddHouse = () => {
   const name = useRef();
@@ -29,7 +28,7 @@ const AddHouse = () => {
       method: 'POST',
       body: JSON.stringify(data),
       headers: {
-        Authorization: auth,
+        Authorization: JSON.parse(localStorage.getItem('token')),
         Accept: 'application/json',
         'Content-Type': 'application/json',
       },
