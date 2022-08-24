@@ -8,7 +8,7 @@ import SendIcon from '@mui/icons-material/Send';
 import Button from '@mui/material/Button';
 import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom';
-import { BiLeftArrow } from "react-icons/bi"
+import { BiLeftArrow } from 'react-icons/bi';
 
 const AddReservation = () => {
   const [age, setAge] = useState('');
@@ -16,7 +16,7 @@ const AddReservation = () => {
   const [sDate, setSDate] = useState();
   const [eDate, setEDate] = useState();
   const [picked, setPicked] = useState();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const apartments = useSelector((state) => state);
 
@@ -46,11 +46,11 @@ const AddReservation = () => {
       endDate: eDate,
       amount,
       user_id: JSON.parse(localStorage.getItem('current_user')).id,
-      apartment_id: picked[0].id
+      apartment_id: picked[0].id,
     };
     fetch('https://zuku-apartments-api.herokuapp.com/api/v1/reservations', {
       method: 'POST',
-      body: JSON.stringify({reservation}),
+      body: JSON.stringify({ reservation }),
       headers: {
         Authorization: JSON.parse(localStorage.getItem('token')),
         Accept: 'application/json',
@@ -70,9 +70,9 @@ const AddReservation = () => {
         timer: 1300,
       });
       postData();
-      setTimeout(()=>{
-        navigate('/my_reservations')
-      }, 1600)
+      setTimeout(() => {
+        navigate('/my_reservations');
+      }, 1600);
     } else {
       Swal.fire({
         position: 'center',
@@ -89,56 +89,59 @@ const AddReservation = () => {
       <button type="button" onClick={() => navigate('/')} className="left-button left-right-buttons add-apartment-page-back-btn white-back-btn">
         <BiLeftArrow className="direction-icons green-direction-icon" />
       </button>
-      <FormControl
-        sx={{ m: 1, minWidth: 120 }}
-        size="small"
-        className="ui-form-for-reservation"
-      >
-        <InputLabel id="demo-select-small" style={{ color: 'white' }}>Name of Apartment</InputLabel>
-        <Select
-          labelId="demo-select-small"
-          id="demo-select-small"
-          value={age}
-          label="Name of Apartment"
-          onChange={handleChange}
-          required
+      <div>
+        <h1 className='header-for-new-reservation'>Add new Reservation</h1>
+        <FormControl
+          sx={{ m: 1, minWidth: 120 }}
+          size="small"
+          className="ui-form-for-reservation"
         >
-          <MenuItem value="">
-            <em>None</em>
-          </MenuItem>
-          {apartments ? (
-            apartments.map((apartment) => (
-              <MenuItem
-                key={apartment.id}
-                value={apartment.id}
-                className={apartment.price}
-              >
-                {apartment.name}
-              </MenuItem>
-            ))
-          ) : (
-            <span> </span>
-          )}
-        </Select>
-        <div className="datetime-div">
-          <input type="date" onChange={handleStartDate} required />
-          <span>to</span>
-          <input type="date" onChange={handleEndDate} required />
-        </div>
-        <fieldset>
-          <legend>Amount $</legend>
-          <input type="number" id="mothman" name="monster" disabled value={amount} />
-        </fieldset>
-        <Button
-          type="submit"
-          className="add-reservation-btn"
-          style={{ backgroundColor: '#97C00EFF' }}
-          variant="contained"
-          endIcon={<SendIcon />}
-        >
-          Book
-        </Button>
-      </FormControl>
+          <InputLabel id="demo-select-small" style={{ color: 'white' }}>Name of Apartment</InputLabel>
+          <Select
+            labelId="demo-select-small"
+            id="demo-select-small"
+            value={age}
+            label="Name of Apartment"
+            onChange={handleChange}
+            required
+          >
+            <MenuItem value="">
+              <em>None</em>
+            </MenuItem>
+            {apartments ? (
+              apartments.map((apartment) => (
+                <MenuItem
+                  key={apartment.id}
+                  value={apartment.id}
+                  className={apartment.price}
+                >
+                  {apartment.name}
+                </MenuItem>
+              ))
+            ) : (
+              <span> </span>
+            )}
+          </Select>
+          <div className="datetime-div">
+            <input type="date" onChange={handleStartDate} required />
+            <span>to</span>
+            <input type="date" onChange={handleEndDate} required />
+          </div>
+          <fieldset>
+            <legend>Amount $</legend>
+            <input type="number" id="mothman" name="monster" disabled value={amount} />
+          </fieldset>
+          <Button
+            type="submit"
+            className="add-reservation-btn"
+            style={{ backgroundColor: '#97C00EFF' }}
+            variant="contained"
+            endIcon={<SendIcon />}
+          >
+            Book
+          </Button>
+        </FormControl>
+      </div>
     </form>
   );
 };
