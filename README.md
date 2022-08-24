@@ -28,7 +28,7 @@
 
 ## Live Demo 🌐
 
-[Zuku-Apartments-Live-Demo](https://zuku-apartments-frontend.vercel.app/https://zuku-apartments-frontend.vercel.app/ )
+[Zuku-Apartments-Live-Demo](https://zuku-apartments-frontend.vercel.app/)
 
 ## Getting Started
 
