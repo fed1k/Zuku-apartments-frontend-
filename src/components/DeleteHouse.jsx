@@ -1,8 +1,6 @@
-import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux"
-import { confirmAlert } from 'react-confirm-alert';
-import 'react-confirm-alert/src/react-confirm-alert.css'; 
 import { GiHamburgerMenu } from "react-icons/gi";
+import Swal from "sweetalert2";
 import { logger } from "./Home";
 
 const DeleteHouse = () => {
@@ -17,22 +15,15 @@ const DeleteHouse = () => {
       })
     }
 
-    const confirm = (i) => {
-        return  confirmAlert({
-            title: 'Confirm to submit',
-            message: 'Are you sure to delete this apartment.',
-            buttons: [
-              {
-                label: 'Yes',
-                onClick: () => removeApartment(i)
-              },
-              {
-                label: 'No',
-                onClick: () => window,
-              }
-            ]
-        }); 
-    }
+    const confirm = (i) => Swal.fire({
+      title: 'Are you sure to remove this?',
+      showCancelButton: true,
+      confirmButtonText: 'Delete',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        removeApartment(i)
+      }
+    });
 
     return (
       <div id="delete-page">

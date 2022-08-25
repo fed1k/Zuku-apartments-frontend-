@@ -1,7 +1,7 @@
 #auth_page {
   display: flex;
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
   background: url('../img/flor-apt-living-hero.jpg'), #96bf18;
   background-position: center;
   background-size: cover;
@@ -58,9 +58,10 @@
 
 #auth_page section .actions {
   display: flex;
-  flex-flow: row wrap;
+  /* flex-flow: row wrap; */
   justify-content: center;
   gap: 1rem;
+  padding-bottom: 1rem;
 }
 
 #auth_page section .actions button {
@@ -88,4 +89,27 @@
   background: #fff;
   color: #99eb1b;
   border-color: #fff;
+}
+
+@media screen and (max-width: 500px) {
+  #auth_page section {
+    width: 80%;
+    gap: 0.4rem;
+  }
+
+  #auth_page section h1 {
+    font-size: 1.5rem;
+  }
+
+  #auth_page section .actions {
+    gap: 0.6rem;
+  }
+
+  .swal2-html-container {
+    margin: 1rem 0;
+  }
+
+  .swal2-input {
+    font-size: 0.84rem;
+  }
 }

@@ -538,6 +538,10 @@ fieldset {
   }
 }
 
+.react-confirm-alert-body {
+  width: 280px;
+}
+
 @media screen and (max-width: 1000px) {
   .sidebar {
     display: none;
@@ -549,6 +553,11 @@ fieldset {
 
   .my-reservations-container {
     height: 100vh;
+    gap: 0;
+  }
+
+  .specific-apartment-back-btn-div {
+    flex-direction: column;
     gap: 0;
   }
 
@@ -571,6 +580,11 @@ fieldset {
         width: 70vw;
         height: 60vh;
       }
+
+      a,
+      p {
+        padding-left: 0.6rem;
+      }
     }
 
     div:nth-child(even) {
@@ -581,6 +595,11 @@ fieldset {
         border-top-left-radius: 50%;
         width: 70vw;
         height: 60vh;
+      }
+
+      a,
+      p {
+        padding-right: 0.6rem;
       }
     }
   }
@@ -614,7 +633,7 @@ fieldset {
   }
 
   .close-sidebar {
-    font-size: 26px;
+    font-size: 20px;
     margin: 10px 1rem 0 0;
     display: inline;
     align-self: flex-end;
@@ -635,6 +654,11 @@ fieldset {
   #detail-p {
     gap: 5%;
     height: 100vh;
+    flex-direction: column;
+
+    .apartment-specific-image {
+      width: 80%;
+    }
 
     h1 {
       font-size: 22px;
@@ -643,7 +667,7 @@ fieldset {
 
   .logo {
     width: 30%;
-    height: 30%;
+    height: 10%;
     padding: 0.1rem 1rem;
   }
 
@@ -677,5 +701,35 @@ fieldset {
   .white-back-btn {
     width: 60px;
     height: 50px;
+  }
+
+  .nav-link {
+    font-size: 14px;
+  }
+
+  .current-user-name {
+    padding: 0 1rem;
+  }
+
+  #swal2-title {
+    font-size: 1.6rem;
+  }
+
+  #details-info {
+    margin: 0;
+    padding: 2% 10%;
+  }
+
+  .d-page-apartment-container {
+    flex-direction: column;
+    padding: 8%;
+
+    button {
+      align-self: flex-start;
+    }
+
+    img {
+      width: 150px;
+    }
   }
 }
