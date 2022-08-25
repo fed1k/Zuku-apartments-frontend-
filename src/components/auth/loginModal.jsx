@@ -46,7 +46,6 @@ const loginModal = (setIn) => {
           })
           .then((data) => {
             if (data.status === "success") {
-              // console.log(data.headers.get('Authorization'));
               setIn(true);
               localStorage.setItem("current_user", JSON.stringify(data.user));
             } else {

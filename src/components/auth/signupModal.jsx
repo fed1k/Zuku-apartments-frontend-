@@ -69,7 +69,6 @@ const signUpModal = (setIn) => {
           });
       }
     },
-    //allowOutsideClick: () => !Swal.isLoading(),
   });
 };
 export default signUpModal;

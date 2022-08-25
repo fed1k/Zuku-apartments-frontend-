@@ -58,8 +58,6 @@
 
 #auth_page section .actions {
   display: flex;
-
-  /* flex-flow: row wrap; */
   justify-content: center;
   gap: 1rem;
   padding-bottom: 1rem;
